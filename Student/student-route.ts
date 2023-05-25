@@ -12,5 +12,6 @@ router.get('/Student/:pid', studentControllers.getStudentById);
 router.patch('/Student/UpdatePassword/:pid', studentControllers.updatePassword);
 router.patch('/Student/UpdateMail/:pid', studentControllers.updateMail);
 router.patch('/Student/UpdatePhNum/:pid', studentControllers.updatePhNum);
+router.post('/Student/SCA/:pid', studentControllers.requestDocument);
 
 module.exports = router;
