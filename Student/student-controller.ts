@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 const HttpError = require('../Custom-Error/http-error')
 const Student = require('./Student')
 const Document = require('./Document')
+const RecoverAccount = require('./RecoverAccount')
+const RegisterAccount = require('./Register')
 
 
 //CREATING NEW STUDENT AND SENDING IT TO THE DATABASE
@@ -851,12 +853,56 @@ const requestDocument = async (req, res, next) => {
         docReason
     })
 
-    // SAVING CREATED STUDENT TO DATABASE
     try {
         createdDocument.save();
         res.status(201).json({ message: "new document uploaded", createdPost: createdDocument });
     } catch (err) {
         const error = new HttpError('Creating document failed, please try again.');
+        return next(error);
+    }
+}
+
+// @ts-ignore
+const recoverAccount = async (req, res, next) => {
+    const {studentId, studentMail, securityQuestion, securityAnswer} = req.body;
+
+    const recoverAccountData = await new RecoverAccount({
+        studentId,
+        studentMail,
+        securityQuestion,
+        securityAnswer
+    })
+
+    try {
+        recoverAccountData.save();
+        res.status(201).json({ message: "new data uploaded", createdPost: recoverAccountData });
+    } catch (err) {
+        const error = new HttpError('Creating data failed, please try again.');
+        return next(error);
+    }
+}
+
+// @ts-ignore
+const registerAccount = async (req, res, next) => {
+    const {name, surname, mail, phone, studentId, citizenshipId, department, securityQuestion, securityAnswer} = req.body;
+
+    const registerAccount = await new RegisterAccount({
+        name,
+        surname,
+        mail,
+        phone,
+        studentId,
+        citizenshipId,
+        department,
+        securityQuestion,
+        securityAnswer
+    })
+
+    try {
+        registerAccount.save();
+        res.status(201).json({ message: "new data uploaded", createdPost: registerAccount });
+    } catch (err) {
+        const error = new HttpError('Registering failed, please try again.');
         return next(error);
     }
 }
@@ -868,4 +914,6 @@ exports.updatePassword = updatePassword;
 exports.updateMail = updateMail;
 exports.updatePhNum = updatePhNum;
 exports.requestDocument = requestDocument;
+exports.recoverAccount = recoverAccount;
+exports.registerAccount = registerAccount;
 
