@@ -7,7 +7,7 @@ const cors = require("cors");
 const app = express();
 
 //HANDLING 'CORS' ERROR
-app.use((req: any, res: { setHeader: (arg0: string, arg1: string) => void; }, next: () => void)=>{     //FOR CORS ERROR IN BROWSER WHEN SENDING DATA
+app.use((req: any, res: { setHeader: (arg0: string, arg1: string) => void; }, next: () => void)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
