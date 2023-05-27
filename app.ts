@@ -32,7 +32,7 @@ mongoose
         app.listen(5000);
         console.log('Connected to database')
     })
-    .catch((err: any) => {
+    .catch((err) => {
         console.log(err);
     });
 
