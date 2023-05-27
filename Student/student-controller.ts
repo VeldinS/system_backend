@@ -1,9 +1,12 @@
-import mongoose from 'mongoose';
-const HttpError = require('../Custom-Error/http-error')
-const Student = require('./Student')
-const Document = require('./Document')
-const RecoverAccount = require('./RecoverAccount')
-const RegisterAccount = require('./Register')
+// @ts-ignore
+const mongoose = require('mongoose');
+// @ts-ignore
+const HttpError = require('../Custom-Error/http-error.ts')
+const Student = require('./Student.ts')
+// @ts-ignore
+const Document = require('./Document.ts')
+const RecoverAccount = require('./RecoverAccount.ts')
+const RegisterAccount = require('./Register.ts')
 
 
 //CREATING NEW STUDENT AND SENDING IT TO THE DATABASE
@@ -845,7 +848,7 @@ const updatePhNum = async (req, res, next) => {
 // @ts-ignore
 const requestDocument = async (req, res, next) => {
     const {docType, docLanguage, docCopies, docReason} = req.body;
-
+    // @ts-ignore
     const createdDocument = await new Document({
         docType,
         docLanguage,
@@ -854,6 +857,7 @@ const requestDocument = async (req, res, next) => {
     })
 
     try {
+        // @ts-ignore
         createdDocument.save();
         res.status(201).json({ message: "new document uploaded", createdPost: createdDocument });
     } catch (err) {

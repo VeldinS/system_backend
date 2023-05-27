@@ -1,6 +1,6 @@
 // @ts-ignore
 const express = require('express');
-const studentControllers = require('./student-controller')
+const studentControllers = require('./student-controller.ts')
 
 // @ts-ignore
 const router = express.Router();

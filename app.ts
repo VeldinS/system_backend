@@ -1,5 +1,7 @@
+// @ts-ignore
 const express = require('express');
-const mongoose = require('mongoose')
+// @ts-ignore
+const mongoose = require('mongoose');
 let bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -22,13 +24,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //ROUTES
-const studentRoutes = require('./Student/student-route')
+const studentRoutes = require('./Student/student-route.ts')
 
 app.use('/', studentRoutes); // route to STUDENTS
 
 //CONNECTING TO DATABASE
 mongoose
-    .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.kai58d9.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
+    .connect(`mongodb+srv://veldin:V3ldin123@cluster0.kai58d9.mongodb.net/systemInformation?retryWrites=true&w=majority`)
     .then(() => {
         app.listen(5000);
         console.log('Connected to database')
