@@ -1,10 +1,8 @@
 // @ts-ignore
-import Student from "../Student/Student";
-
 const mongoose = require('mongoose');
 // @ts-ignore
 const HttpError = require('../Custom-Error/http-error.ts')
-const Professor = require('./Professor')
+const Professor = require('./Professor.ts')
 // @ts-ignore
 const createProfessor = async (req, res, next) => {
     const {

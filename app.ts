@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //ROUTES
 const studentRoutes = require('./Student/student-route.ts')
-const professorRoutes = require('./Professor/professor-route')
+const professorRoutes = require('./Professor/professor-route.ts')
 
 app.use('/', studentRoutes); // route to STUDENTS
 app.use('/', professorRoutes);

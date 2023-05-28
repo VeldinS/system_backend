@@ -1,8 +1,6 @@
 // @ts-ignore
-import studentControllers from "../Student/student-controller";
-
 const express = require('express');
-const professorControllers = require('./professor-controller')
+const professorControllers = require('./professor-controller.ts')
 
 // @ts-ignore
 const router = express.Router();
