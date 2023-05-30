@@ -847,9 +847,11 @@ const updatePhNum = async (req, res, next) => {
 
 // @ts-ignore
 const requestDocument = async (req, res, next) => {
-    const {docType, docLanguage, docCopies, docReason} = req.body;
+    const {studentName, studentSurname, docType, docLanguage, docCopies, docReason} = req.body;
     // @ts-ignore
     const createdDocument = await new Document({
+        studentName,
+        studentSurname,
         docType,
         docLanguage,
         docCopies,
