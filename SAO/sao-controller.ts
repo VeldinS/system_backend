@@ -50,7 +50,8 @@ const getDocuments = async (req, res, next) => {
         const error = new HttpError('Fetching documents failed, please try again later.');
         return next(error);
     }
-    res.json(documents.map((document: { toObject: (arg0: { getters: boolean; }) => any; }) => document.toObject({ getters: true })));
+    // @ts-ignore
+    res.json(documents.map(document => document.toObject({ getters: true })));
 }
 
 // @ts-ignore
@@ -85,7 +86,8 @@ const getRecovers = async (req, res, next) => {
         const error = new HttpError('Fetching documents failed, please try again later.');
         return next(error);
     }
-    res.json(recovery.map((recovery: { toObject: (arg0: { getters: boolean; }) => any; }) => recovery.toObject({ getters: true })));
+    // @ts-ignore
+    res.json(recovery.map(recovery => recovery.toObject({ getters: true })));
 }
 
 // @ts-ignore
@@ -120,7 +122,8 @@ const getRegisters = async (req, res, next) => {
         const error = new HttpError('Fetching registers failed, please try again later.');
         return next(error);
     }
-    res.json(register.map((register: { toObject: (arg0: { getters: boolean; }) => any; }) => register.toObject({ getters: true })));
+    // @ts-ignore
+    res.json(register.map(register => register.toObject({ getters: true })));
 }
 
 // @ts-ignore
