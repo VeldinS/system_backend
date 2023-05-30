@@ -26,9 +26,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //ROUTES
 const studentRoutes = require('./Student/student-route.ts')
 const professorRoutes = require('./Professor/professor-route.ts')
+const saoRoutes = require('./SAO/sao-route.ts')
+
 
 app.use('/', studentRoutes); // route to STUDENTS
 app.use('/', professorRoutes);
+app.use('/', saoRoutes);
 //CONNECTING TO DATABASE
 mongoose
     .connect(`mongodb+srv://veldin:V3ldin123@cluster0.kai58d9.mongodb.net/systemInformation?retryWrites=true&w=majority`)
